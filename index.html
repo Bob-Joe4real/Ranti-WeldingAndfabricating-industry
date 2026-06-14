@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remember Ranti Ikoli | Professional Fabricator & Welder</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f59e0b', // Industrial Amber
+                        darkBg: '#111827',
+                        darkCard: '#1f2937'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-darkBg dark:text-gray-100 transition-colors duration-300 font-sans">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white/90 dark:bg-darkBg/90 backdrop-blur-md shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 font-bold text-xl tracking-wider text-primary">
+                    RANTI IKOLI
+                </div>
+                <div class="hidden md:flex space-x-6 font-medium">
+                    <a href="#hero" class="hover:text-primary transition">Home</a>
+                    <a href="#about" class="hover:text-primary transition">About</a>
+                    <a href="#services" class="hover:text-primary transition">Services</a>
+                    <a href="#gallery" class="hover:text-primary transition">Projects</a>
+                    <a href="#experience" class="hover:text-primary transition">Experience</a>
+                    <a href="#contact" class="hover:text-primary transition">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Desktop Role Switcher / Status Indicator -->
+                    <div class="hidden md:flex items-center gap-2">
+                        <span id="roleBadge" class="px-3 py-1 bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400 text-xs font-bold uppercase rounded-full">
+                            <i class="fas fa-user-tie mr-1"></i> Guest Mode
+                        </span>
+                        <button id="adminLoginBtn" class="text-xs font-bold text-primary hover:underline uppercase">Login as Admin</button>
+                        <button id="adminLogoutBtn" class="hidden text-xs font-bold text-red-500 hover:underline uppercase">Logout</button>
+                    </div>
+
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                        <i class="fas fa-moon dark:hidden text-lg"></i>
+                        <i class="fas fa-sun hidden dark:block text-lg text-primary"></i>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Dropdown Menu (Hamburger Menu Options) -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-darkBg border-t dark:border-gray-800 px-4 pt-2 pb-4 space-y-2 shadow-lg">
+            <a href="#hero" class="block py-2 hover:text-primary">Home</a>
+            <a href="#about" class="block py-2 hover:text-primary">About</a>
+            <a href="#services" class="block py-2 hover:text-primary">Services</a>
+            <a href="#gallery" class="block py-2 hover:text-primary">Projects</a>
+            <a href="#experience" class="block py-2 hover:text-primary">Experience</a>
+            <a href="#contact" class="block py-2 hover:text-primary">Contact</a>
+            <hr class="border-gray-200 dark:border-gray-800 my-2">
+            <!-- Mobile Admin Operations Controller -->
+            <div class="pt-2 flex flex-col gap-2">
+                <span id="mobileRoleBadge" class="text-xs font-bold text-gray-500 dark:text-gray-400 block">STATUS: GUEST VIEW</span>
+                <button id="mobileAdminLoginBtn" class="w-full text-center py-2 bg-primary/10 text-primary font-bold text-sm rounded hover:bg-primary/20">
+                    <i class="fas fa-lock mr-2"></i>Admin Dashboard Login
+                </button>
+                <button id="mobileAdminLogoutBtn" class="hidden w-full text-center py-2 bg-red-500/10 text-red-500 font-bold text-sm rounded hover:bg-red-500/20">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Log Out Admin
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="relative h-[90vh] flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=1200');">
+        <div class="text-center text-white px-4 max-w-3xl">
+            <span class="text-primary uppercase tracking-widest font-semibold text-sm sm:text-base block mb-3">Expert Craftsmanship & Structural Integrity</span>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">Remember Ranti Ikoli</h1>
+            <p class="text-xl sm:text-2xl text-gray-200 mb-8 font-light">Professional Fabricator & Welder</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="tel:+2347071317802" class="px-6 py-3 bg-primary text-gray-900 font-bold rounded shadow-lg hover:bg-amber-500 transition flex items-center gap-2"><i class="fas fa-phone"></i> Call Now</a>
+                <a href="https://api.whatsapp.com/send?phone=2347071317802&text=Hello%20Remember%20Ranti%20Ikoli,%20I%20visited%20your%20portfolio%20and%20I%20would%20like%20to%20discuss%20a%20welding/fabrication%20project%20with%20you." target="_blank" class="px-6 py-3 bg-green-600 text-white font-bold rounded shadow-lg hover:bg-green-500 transition flex items-center gap-2"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="#gallery" class="px-6 py-3 bg-transparent border-2 border-white text-white font-bold rounded hover:bg-white hover:text-gray-900 transition flex items-center gap-2">View Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. About Me Section -->
+    <section id="about" class="py-20 px-4 max-w-7xl mx-auto reveal">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="relative flex justify-center">
+                <div class="w-72 h-72 sm:w-96 sm:h-96 rounded-full overflow-hidden border-8 border-primary shadow-2xl relative bg-gray-200 dark:bg-gray-800">
+                    <img id="profilePicture" src="ranti.jpg" alt="Remember Ranti Ikoli Profile" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute bottom-4 bg-gray-900/90 text-white px-4 py-1.5 rounded-full text-xs font-semibold backdrop-blur-sm border border-primary/30">
+                    Remember Ranti Ikoli
+                </div>
+            </div>
+            <div>
+                <h2 class="text-3xl font-bold mb-6 border-b-4 border-primary inline-block pb-2">About Me</h2>
+                <p class="text-lg mb-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                    With over 7 years of hands-on experience, I deliver top-tier structural solutions tailored to structural strength and aesthetic requirements. My core dedication focuses heavily on uncompromised design accuracy, safety, and project longevity.
+                </p>
+                <p class="text-lg mb-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Based in Nigeria, my structural footprints span cross-regional operations delivering critical heavy fabrications and custom architecture features within **Abeokuta, Lagos, Ekiti**, and surrounding territories.
+                </p>
+                <div class="grid grid-cols-2 gap-4 text-sm font-semibold">
+                    <div class="flex items-center gap-2 text-green-600 dark:text-green-400"><i class="fas fa-check-circle"></i> Premium Engineering Standards</div>
+                    <div class="flex items-center gap-2 text-green-600 dark:text-green-400"><i class="fas fa-check-circle"></i> Timely Structural Handover</div>
+                    <div class="flex items-center gap-2 text-green-600 dark:text-green-400"><i class="fas fa-check-circle"></i> Certified Site Safety Ethics</div>
+                    <div class="flex items-center gap-2 text-green-600 dark:text-green-400"><i class="fas fa-check-circle"></i> Durable Anti-Corrosive Finish</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADMIN PROTECTED UPLOAD CONTROLS (Hidden from normal public guests) -->
+    <section id="adminPanel" class="hidden py-12 bg-amber-50 dark:bg-yellow-950/20 border-y-2 border-dashed border-primary px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-bold text-amber-600 dark:text-primary"><i class="fas fa-tools mr-2"></i>Admin Upload Dashboard</h3>
+                <span class="text-xs bg-green-600 text-white font-bold px-3 py-1 rounded-full uppercase">Authenticated Workspace</span>
+            </div>
+            <form id="mediaUploadForm" class="grid sm:grid-cols-2 gap-4 bg-white dark:bg-darkCard p-6 rounded-xl shadow-lg">
+                <div class="sm:col-span-2">
+                    <label class="block text-xs font-bold uppercase tracking-wider mb-1">Update Profile Picture (Image URL Link)</label>
+                    <input type="url" id="newProfilePicUrl" placeholder="Paste direct image link url here..." class="w-full px-3 py-2 border rounded text-sm dark:bg-darkBg dark:border-gray-700">
+                </div>
+                <hr class="sm:col-span-2 my-2 border-gray-100 dark:border-gray-800">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider mb-1">Project Media Title</label>
+                    <input type="text" id="mediaTitle" placeholder="e.g., Luxury Sliding Gate Frame" class="w-full px-3 py-2 border rounded text-sm dark:bg-darkBg dark:border-gray-700">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider mb-1">Media Type</label>
+                    <select id="mediaType" class="w-full px-3 py-2 border rounded text-sm dark:bg-darkBg dark:border-gray-700">
+                        <option value="image">Static Image File</option>
+                        <option value="video">Playable Video File / Link</option>
+                    </select>
+                </div>
+                <div class="sm:col-span-2">
+                    <label class="block text-xs font-bold uppercase tracking-wider mb-1">Direct Media URL Link</label>
+                    <input type="url" id="mediaUrl" placeholder="Paste your direct image URL, .mp4 link, or YouTube embed link..." class="w-full px-3 py-2 border rounded text-sm dark:bg-darkBg dark:border-gray-700">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider mb-1">Structural Classification Group</label>
+                    <select id="mediaCategory" class="w-full px-3 py-2 border rounded text-sm dark:bg-darkBg dark:border-gray-700">
+                        <option value="gates">Gates</option>
+                        <option value="doors">Doors</option>
+                        <option value="canopies">Canopies</option>
+                        <option value="roofing">Roofing</option>
+                        <option value="burglar">Burglar Proofs</option>
+                        <option value="industrial">Industrial Fabrication</option>
+                        <option value="custom">Custom Projects</option>
+                    </select>
+                </div>
+                <div class="flex items-end">
+                    <button type="submit" class="w-full py-2 bg-primary text-gray-900 font-bold rounded text-sm hover:bg-amber-500 transition shadow">
+                        Publish Update
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+      <!-- 3. Services Section -->
+    <section id="services" class="py-20 bg-gray-100 dark:bg-darkCard transition-colors duration-300 px-4">
+        <div class="max-w-7xl mx-auto reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold border-b-4 border-primary inline-block pb-2">Our Specialized Services</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white dark:bg-darkBg p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="text-primary text-3xl mb-4"><i class="fas fa-tools"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Metal Fabrication</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Custom cutting, bending, and assembly designs modeled accurately to project specifications.</p>
+                </div>
+                <div class="bg-white dark:bg-darkBg p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="text-primary text-3xl mb-4"><i class="fas fa-fire"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Arc Welding</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">High-strength heavy fusion joints safeguarding multi-alloy structural applications securely.</p>
+                </div>
+                <div class="bg-white dark:bg-darkBg p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="text-primary text-3xl mb-4"><i class="fas fa-gantry"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Structural Steel Works</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Framework engineering for buildings, warehouses, and complex load-bearing skeletons.</p>
+                </div>
+                <div class="bg-white dark:bg-darkBg p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="text-primary text-3xl mb-4"><i class="fas fa-door-closed"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Gates and Fencing</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">High-security perimeter enclosures engineered gracefully with modern architectural aesthetics.</p>
+                </div>
+                <div class="bg-white dark:bg-darkBg p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="text-primary text-3xl mb-4"><i class="fas fa-home"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Roofing Frames</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Unyielding, perfectly aligned structural trusses tailored for standard or industrial roofs.</p>
+                </div>
+                <div class="bg-white dark:bg-darkBg p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="text-primary text-3xl mb-4"><i class="fas fa-list-ol"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Staircases & Railings</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Ergonomic safety handrails, spiral stairs, and balconies constructed with solid anchorage.</p>
+                </div>
+                <div class="bg-white dark:bg-darkBg p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="text-primary text-3xl mb-4"><i class="fas fa-wrench"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Repairs & Maintenance</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Rapid modification, crack fortification, and anti-corrosion re-treatment setups.</p>
+                </div>
+                <div class="bg-white dark:bg-darkBg p-6 rounded-lg shadow hover:shadow-xl transition transform hover:-translate-y-1">
+                    <div class="text-primary text-3xl mb-4"><i class="fas fa-industry"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Industrial Installations</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">On-site construction and precision positioning of specialized heavy machinery mounts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Project Gallery Section -->
+    <section id="gallery" class="py-20 px-4 max-w-7xl mx-auto reveal">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold border-b-4 border-primary inline-block pb-2">Project Gallery</h2>
+            
+            <div class="flex flex-wrap justify-center gap-2 mt-8">
+                <button class="filter-btn px-4 py-2 bg-primary text-gray-900 rounded font-semibold text-sm transition" data-filter="all">All</button>
+                <button class="filter-btn px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded font-semibold text-sm transition" data-filter="gates">Gates</button>
+                <button class="filter-btn px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded font-semibold text-sm transition" data-filter="doors">Doors</button>
+                <button class="filter-btn px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded font-semibold text-sm transition" data-filter="canopies">Canopies</button>
+                <button class="filter-btn px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded font-semibold text-sm transition" data-filter="roofing">Roofing</button>
+                <button class="filter-btn px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded font-semibold text-sm transition" data-filter="burglar">Burglar Proofs</button>
+                <button class="filter-btn px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded font-semibold text-sm transition" data-filter="industrial">Industrial</button>
+                <button class="filter-btn px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded font-semibold text-sm transition" data-filter="custom">Custom</button>
+            </div>
+        </div>
+
+        <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- Initial Default Projects -->
+            <div class="gallery-item overflow-hidden rounded-lg shadow-md relative group cursor-pointer" data-category="gates" data-type="image">
+                <img src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&q=80&w=400" alt="Gate Project" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-bold">Luxury Perimeter Gate</div>
+            </div>
+            <div class="gallery-item overflow-hidden rounded-lg shadow-md relative group cursor-pointer" data-category="doors" data-type="image">
+                <img src="https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&q=80&w=400" alt="Steel Door" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-bold">Reinforced Steel Door</div>
+            </div>
+            <div class="gallery-item overflow-hidden rounded-lg shadow-md relative group cursor-pointer" data-category="canopies" data-type="image">
+                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=400" alt="Canopy Setup" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-bold">Modern Entrance Canopy</div>
+            </div>
+            <div class="gallery-item overflow-hidden rounded-lg shadow-md relative group cursor-pointer" data-category="industrial" data-type="video">
+                <div class="relative w-full h-64 bg-black flex items-center justify-center">
+                    <i class="fas fa-play-circle text-5xl text-primary absolute z-10 opacity-80"></i>
+                    <img src="https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover opacity-60">
+                </div>
+                <div class="absolute inset-0 bg-black/40 flex items-end p-4 text-white font-bold">Industrial Infrastructure Reel</div>
+                <input type="hidden" class="video-target" value="https://www.w3schools.com/html/mov_bbb.mp4">
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Work Experience Section -->
+    <section id="experience" class="py-20 bg-gray-100 dark:bg-darkCard transition-colors duration-300 px-4">
+        <div class="max-w-4xl mx-auto reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold border-b-4 border-primary inline-block pb-2">Work History & Scale</h2>
+            </div>
+            <div class="space-y-8">
+                <div class="bg-white dark:bg-darkBg p-6 rounded-lg shadow-md border-l-4 border-primary">
+                    <div class="flex flex-wrap justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold">7+ Years Active Project Execution</h3>
+                        <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold uppercase rounded-full">2019 - Present</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">Consistently working hand-in-hand with primary real estate contractors, structural engineers, and independent builders to execute reliable, safe architectural visions.</p>
+                    <div class="mt-4 flex flex-wrap gap-2 text-xs font-bold uppercase">
+                        <span class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded"><i class="fas fa-map-marker-alt text-red-500 mr-1"></i> Abeokuta</span>
+                        <span class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded"><i class="fas fa-map-marker-alt text-red-500 mr-1"></i> Lagos</span>
+                        <span class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded"><i class="fas fa-map-marker-alt text-red-500 mr-1"></i> Ekiti</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Skills Section -->
+    <section id="skills" class="py-20 px-4 max-w-4xl mx-auto reveal">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold border-b-4 border-primary inline-block pb-2">Technical Mastery</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div>
+                <div class="flex justify-between mb-1 font-semibold"><span>Metal Fabrication</span><span>95%</span></div>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 h-3 rounded-full overflow-hidden"><div class="bg-primary h-full architectural-bar" style="width: 95%"></div></div>
+            </div>
+            <div>
+                <div class="flex justify-between mb-1 font-semibold"><span>Arc & Fusion Welding</span><span>98%</span></div>
+                <div class="w-full bg-gray-200 dark:bg-gray-700 h-3 rounded-full overflow-hidden"><div class="bg-primary h-full architectural-bar" style="width: 98%"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Contact Section & 10. Form -->
+    <section id="contact" class="py-20 px-4 max-w-7xl mx-auto reveal">
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-3xl font-bold mb-6 border-b-4 border-primary inline-block pb-2">Get In Touch</h2>
+                <div class="space-y-4 font-medium">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xl"><i class="fas fa-user"></i></div>
+                        <div><p class="text-xs text-gray-400">Name</p><p class="text-base">Remember Ranti Ikoli</p></div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xl"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <p class="text-xs text-gray-400">Email Address</p>
+                            <a href="mailto:rantiweldingandfabricatingindustry@gmail.com" class="text-base text-primary hover:underline break-all">rantiweldingandfabricatingindustry@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center text-xl"><i class="fas fa-phone"></i></div>
+                        <div><p class="text-xs text-gray-400">Phone</p><a href="tel:+2347071317802" class="text-base hover:text-primary transition">07071317802</a></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Functional Contact Form System redirection to WhatsApp API directly -->
+            <div class="bg-white dark:bg-darkCard p-8 rounded-lg shadow-lg">
+                <form id="clientContactForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Full Name</label>
+                        <input type="text" id="formClientName" required class="w-full px-4 py-2 border rounded-md dark:bg-darkBg dark:border-gray-700 focus:ring-2 focus:ring-primary focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Project Details</label>
+                        <textarea rows="4" id="formProjectDetails" required placeholder="Describe the type of work, dimensions, or location parameters..." class="w-full px-4 py-2 border rounded-md dark:bg-darkBg dark:border-gray-700 focus:ring-2 focus:ring-primary focus:outline-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-primary text-gray-900 font-bold rounded hover:bg-amber-500 transition shadow-md flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp"></i> Send to WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-400 py-8 border-t border-gray-900 text-center text-sm">
+        <p>&copy; 2026 Remember Ranti Ikoli. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Universal Lightbox Overlay Media Component -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex-col items-center justify-center p-4">
+        <button id="closeLightbox" class="absolute top-6 right-6 text-white text-3xl hover:text-primary"><i class="fas fa-times"></i></button>
+        <div id="lightboxMediaContainer" class="max-w-4xl max-h-[80vh] w-full flex justify-center items-center"></div>
+        <p id="lightboxCaption" class="text-white font-bold mt-4 tracking-wide text-center"></p>
+    </div>
+
+    <!-- Floating Contact Widgets -->
+    <div class="fixed bottom-6 right-6 flex flex-col gap-3 z-40">
+        <button id="backToTop" class="w-12 h-12 bg-gray-800 text-white dark:bg-white dark:text-gray-900 rounded-full shadow-2xl flex items-center justify-center hidden hover:bg-primary transition"><i class="fas fa-arrow-up"></i></button>
+        <a href="tel:+2347071317802" class="w-12 h-12 bg-blue-600 text-white rounded-full shadow-2xl flex items-center justify-center sm:hidden"><i class="fas fa-phone-alt"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=+2347071317802&text=Hello%20Remember%20Ranti%20Ikoli,%20I%20would%20like%20to%20consult%20with%20you%20regarding%20a%20welding%20or%20fabrication%20job." target="_blank" class="w-12 h-12 bg-green-600 text-white rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <!-- Script Logic Processing Frame -->
+    <script>
+        const adminPass = "Rfab@1";
+        let isAdmin = false;
+
+        const adminPanel = document.getElementById('adminPanel');
+        const roleBadge = document.getElementById('roleBadge');
+        const mobileRoleBadge = document.getElementById('mobileRoleBadge');
+        const galleryGrid = document.getElementById('galleryGrid');
+        const profilePicture = document.getElementById('profilePicture');
+
+        const loginActions = [document.getElementById('adminLoginBtn'), document.getElementById('mobileAdminLoginBtn')];
+        const logoutActions = [document.getElementById('adminLogoutBtn'), document.getElementById('mobileAdminLogoutBtn')];
+
+        function checkAuthStatus(promptLogin = false) {
+            if (promptLogin) {
+                const passAttempt = prompt("Enter Administration Security Password Credentials:");
+                if (passAttempt === adminPass) {
+                    isAdmin = true;
+                    alert("Authorization verified.");
+                } else if (passAttempt !== null) {
+                    alert("Access Denied.");
+                }
+            }
+
+            if (isAdmin) {
+                adminPanel.classList.remove('hidden');
+                roleBadge.innerHTML = `<i class="fas fa-user-shield text-green-500 mr-1"></i> Admin Workspace`;
+                mobileRoleBadge.innerText = "STATUS: ADMIN WORKSPACE";
+                loginActions.forEach(btn => btn.classList.add('hidden'));
+                logoutActions.forEach(btn => btn.classList.remove('hidden'));
+            } else {
+                adminPanel.classList.add('hidden');
+                roleBadge.innerHTML = `<i class="fas fa-user-tie mr-1"></i> Guest Mode`;
+                mobileRoleBadge.innerText = "STATUS: GUEST VIEW";
+                loginActions.forEach(btn => btn.classList.remove('hidden'));
+                logoutActions.forEach(btn => btn.classList.add('hidden'));
+            }
+        }
+
+        loginActions.forEach(btn => btn.addEventListener('click', () => { checkAuthStatus(true); }));
+        logoutActions.forEach(btn => btn.addEventListener('click', () => { isAdmin = false; checkAuthStatus(); }));
+
+        // Form Submission to WhatsApp Link Builder
+        document.getElementById('clientContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const clientName = document.getElementById('formClientName').value.trim();
+            const projectDetails = document.getElementById('formProjectDetails').value.trim();
+            
+            // Format string template safely for URL deployment
+            const formattedMessage = `Hello Remember Ranti Ikoli,%0A%0AMy name is ${encodeURIComponent(clientName)}.%0A%0AI have a fabrication project inquiry:%0A${encodeURIComponent(projectDetails)}%0A%0APlease get back to me as soon as possible.`;
+            const outboundWhatsappUrl = `https://api.whatsapp.com/send?phone=+2347071317802&text=${formattedMessage}`;
+            
+            window.open(outboundWhatsappUrl, '_blank');
+        });
+
+        // Admin Content Generator Linkage
+        document.getElementById('mediaUploadForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const newProfPic = document.getElementById('newProfilePicUrl').value.trim();
+            if(newProfPic) {
+                profilePicture.src = newProfPic;
+                alert("Profile image source reference updated.");
+                document.getElementById('newProfilePicUrl').value = '';
+                return;
+            }
+
+            const title = document.getElementById('mediaTitle').value;
+            const type = document.getElementById('mediaType').value;
+            const url = document.getElementById('mediaUrl').value;
+            const category = document.getElementById('mediaCategory').value;
+
+            if(!title || !url) {
+                alert("Please complete the structural metadata input fields correctly.");
+                return;
+            }
+
+            const newCard = document.createElement('div');
+            newCard.className = "gallery-item overflow-hidden rounded-lg shadow-md relative group cursor-pointer";
+            newCard.setAttribute('data-category', category);
+            newCard.setAttribute('data-type', type);
+
+  if (type === 'image') {
+                newCard.innerHTML = `
+                    <img src="${url}" alt="${title}" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-bold">${title}</div>
+                `;
+            } else {
+                newCard.innerHTML = `
+                    <div class="relative w-full h-64 bg-black flex items-center justify-center">
+                        <i class="fas fa-play-circle text-5xl text-primary absolute z-10 opacity-80"></i>
+                        <img src="https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover opacity-40">
+                    </div>
+                    <div class="absolute inset-0 bg-black/40 flex items-end p-4 text-white font-bold">${title}</div>
+                    <input type="hidden" class="video-target" value="${url}">
+                `;
+            }
+
+            galleryGrid.prepend(newCard);
+            attachLightboxEvents(newCard);
+            alert("Asset successfully published.");
+            document.getElementById('mediaUploadForm').reset();
+        });
+
+        const lightbox = document.getElementById('lightbox');
+        const mediaContainer = document.getElementById('lightboxMediaContainer');
+        const caption = document.getElementById('lightboxCaption');
+
+        function attachLightboxEvents(element) {
+            element.addEventListener('click', () => {
+                const type = element.getAttribute('data-type');
+                mediaContainer.innerHTML = '';
+                
+                if (type === 'image') {
+                    const src = element.querySelector('img').src;
+                    mediaContainer.innerHTML = `<img src="${src}" class="max-w-full max-h-[80vh] rounded shadow-2xl">`;
+                    caption.innerText = element.textContent.trim();
+                } else if (type === 'video') {
+                    const videoUrl = element.querySelector('.video-target').value;
+                    if(videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+                        let embedUrl = videoUrl.replace("watch?v=", "embed/");
+                        mediaContainer.innerHTML = `<iframe src="${embedUrl}" class="w-full h-[450px] rounded shadow-2xl" allowfullscreen></iframe>`;
+                    } else {
+                        mediaContainer.innerHTML = `<video src="${videoUrl}" controls autoplay class="max-w-full max-h-[80vh] rounded shadow-2xl"></video>`;
+                    }
+                    caption.innerText = element.textContent.trim();
+                }
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+            });
+        }
+
+        document.querySelectorAll('.gallery-item').forEach(item => attachLightboxEvents(item));
+
+        document.getElementById('closeLightbox').addEventListener('click', () => {
+            lightbox.classList.add('hidden');
+            mediaContainer.innerHTML = '';
+        });
+
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        document.getElementById('darkModeToggle').addEventListener('click', () => document.documentElement.classList.toggle('dark'));
+
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('bg-primary', 'text-gray-900'));
+                btn.classList.add('bg-primary', 'text-gray-900');
+                const target = btn.getAttribute('data-filter');
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    item.style.display = (target === 'all' || item.getAttribute('data-category') === target) ? 'block' : 'none';
+                });
+            });
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) backToTopBtn.classList.remove('hidden');
+            else backToTopBtn.classList.add('hidden');
+        });
+        backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+</html>
